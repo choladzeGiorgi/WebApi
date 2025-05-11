@@ -1,0 +1,10 @@
+@hostname = localhost
+@port = 5001
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+### Get all products
+GET https://{{host}}/api/products
+Accept: {{contentType}}
+
+###

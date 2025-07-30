@@ -12,12 +12,12 @@ namespace WepApi.Helper
          .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images))
          .ForMember(dest => dest.PrimaryImageUrl, opt => opt.MapFrom(src =>
              src.Images.FirstOrDefault(i => i.IsPrimary) != null ?
-             $"/api/Product/{src.Id}/images/{src.Images.FirstOrDefault(i => i.IsPrimary).Id}" :
+             $"/api/product/{src.Id}/images/{src.Images.FirstOrDefault(i => i.IsPrimary).Id}" :
              null));
 
             CreateMap<ProductImage, ProductImageDto>()
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src =>
-                    $"/api/Product/{src.ProductId}/images/{src.Id}"));
+                    $"/api/product/{src.ProductId}/images/{src.Id}"));
             CreateMap<Orders, OrderDto>();
             CreateMap<Customer, CustomerDto>()
                  .ForMember(dest => dest.Orders,
